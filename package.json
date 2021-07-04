@@ -1,0 +1,41 @@
+{
+  "name": "mytodo",
+  "version": "1.0.0",
+  "description": "This is the backend section of my TODO application",
+  "main": "app.js",
+  "scripts": {
+    "dev": "env NODE_ENV=development nodemon src/app.js",
+    "migrate": "npx sequelize-cli db:migrate --url mysql://root:@127.0.0.1/my_todo",
+    "migrate_test": "npx sequelize-cli db:migrate --url mysql://$DB_USER:$DB_PASS@127.0.0.1/$DB_NAME",
+    "migration": "npx sequelize-cli migration:create --name modify_users_add_new_fields",
+    "model_generate": "npx sequelize-cli model:generate --name ModelName --attributes userid:integer,field2:string,field3:date",
+    "seeder": "npx sequelize-cli seed:create --name my-seed-file",
+    "seed_local": "npx sequelize-cli db:seed:all --url mysql://root:@127.0.0.1/my_todo",
+    "seed": "npx sequelize-cli db:seed:all --url mysql://$DB_USER:$DB_PASS@127.0.0.1/$DB_NAME",
+    "seed-single": "npx sequelize-cli db:seed --seed <name of seed file>",
+    "test": "NODE=test yarn jest --silent=true --verbose --forceExit --runInBand",
+    "test_local": "NODE=test yarn jest --silent=false --verbose --forceExit --runInBand",
+    "test2": "NODE=test jest --forceExit --runInBand"
+  },
+  "keywords": [
+    "task",
+    "todo",
+    "reminder"
+  ],
+  "author": "sugarCube",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^5.21.7",
+    "sequelize-cli": "^6.2.0",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
+  }
+}

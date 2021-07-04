@@ -1,0 +1,29 @@
+POST http://localhost:5000/v1/user/create
+content-Type: application/json
+
+{
+    "username": "prof",
+    "password": "Welcome123!",
+    "email": "itz4mesays+12@gmail.com"
+}
+
+
+###
+POST http://localhost:5000/v1/user/login
+content-Type: application/json
+
+{
+    "username": "prof",
+    "password": "Welcome123!"
+}
+
+
+###
+POST http://localhost:5000/v1/user/change-password
+content-Type: application/json
+
+{
+    "current_password": "prof",
+    "new_password": "Welcome123!",
+    "confirm_password": "Welcome123!"
+}
