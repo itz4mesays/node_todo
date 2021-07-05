@@ -21,5 +21,13 @@ module.exports = {
         }).catch(err => {
             return res.status(400).json({ error: true, code: 400, message: 'Invalid or no authorization token provided.' })
         })
+    },
+    decodedToken: (req, res, next) => {
+        jwt.verify(req.header('authorization-token'), process.env.ACCESS_TOKEN_SECRET, function (err, decoded) {
+            if (err) return res.status(400).json({ error: true, code: 400, message: 'Invalid or no authorization token provided.' })
+            
+            res.locals.dToken = decoded.user
+            next()
+        });
     }
 }

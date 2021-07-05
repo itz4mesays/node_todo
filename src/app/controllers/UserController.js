@@ -41,7 +41,7 @@ module.exports = {
                 extractedErrors.push(stripTableName)
             });
 
-            res.status(400).json({ error: true, code: 400, message: extractedErrors })
+            res.status(500).json({ error: true, code: 500, message: extractedErrors })
         })
     },
     login: async (req, res) => {
@@ -135,9 +135,9 @@ module.exports = {
                 })
             })
             .catch(err => {
-                return res.status(400).json({
+                return res.status(500).json({
                     error: true,
-                    code: 400,
+                    code: 500,
                     message: 'We are unable to complete this request at the moment. Please try again'
                 })
             })

@@ -28,3 +28,15 @@ authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOj
     "new_password": "Deejayfex_123",
     "confirm_password": "Deejayfex_123"
 }
+
+###
+GET http://localhost:5000/v1/todo/get-all
+content-Type: application/json
+authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MjU0NDY1MDMsImV4cCI6MTYyNTUzMjkwM30.hiafnNeC5i6PCgaDe_AHP8D20r6FsH0KvgKUYUFXgTk
+
+
+
+###
+GET http://localhost:5000/v1/todo/get-single/1
+content-Type: application/json
+authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MjU0NDY1MDMsImV4cCI6MTYyNTUzMjkwM30.hiafnNeC5i6PCgaDe_AHP8D20r6FsH0KvgKUYUFXgTk
