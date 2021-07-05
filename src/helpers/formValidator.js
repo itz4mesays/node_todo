@@ -45,7 +45,12 @@ module.exports = {
             body('current_password')
                 .not().isEmpty().trim().withMessage('Current Password field must be provided'),
             body('new_password')
-                .not().isEmpty().trim().withMessage('New Password field must be provided'),
+                .not().isEmpty().trim().withMessage('New Password field must be provided')
+                .isStrongPassword({
+                    minLength: 6,
+                    minSymbols: 1,
+                    minUppercase: 1
+                }).withMessage('Password is too weak. It must contain minimum of 6characters, a symbol and an uppercase letter'),
             body('confirm_password')
                 .not().isEmpty().trim().withMessage('Confirm Password field must be provided')
                 .custom( (value, { req}) => {
