@@ -59,6 +59,24 @@ module.exports = {
                 })
         ]
     },
+    createPostValidation: () => {
+        return [
+            body('todo_title')
+                .not().isEmpty().trim().withMessage('Todo Title field is required'),
+            body('todo_description')
+                .not().isEmpty().trim().withMessage('Todo Description field is required'),
+            body('todo_type')
+                .not().isEmpty().trim().withMessage('Todo Type field is required'),
+            body('todo_status')
+                .not().isEmpty().trim().withMessage('Todo Status field is required'),
+            body('start_date')
+                .not().isEmpty().trim().withMessage('Start Date field is required')
+                .isDate().withMessage('Start Date must be a valid date e.g YYYY-MM-DD'),
+            body('end_date')
+                .not().isEmpty().trim().withMessage('End Date field is required')
+                .isDate().withMessage('End Date must be a valid date e.g YYYY-MM-DD'),
+        ]
+    },
     validate: (req, res, next) => {
         const errors = validationResult(req)
         // console.log(errors)

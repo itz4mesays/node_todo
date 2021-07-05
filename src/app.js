@@ -6,6 +6,9 @@ const app= express()
 const server= require('http').createServer(app)
 const bodyParser= require('body-parser')
 const jwt = require('jsonwebtoken')
+const helmet = require('helmet')
+
+app.use(helmet());
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())

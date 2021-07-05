@@ -3,13 +3,46 @@ const db = require('../models')
 const User = db.rest.models.user
 const Todo = db.rest.models.todo_list
 const jwt = require('jsonwebtoken')
-const { decodedToken } = require('../../helpers/utils')
 const { Op } = require("sequelize"); //using operator
+const jsonData = require('../../data/data.json')
 
 
 module.exports = {
     create: async (req, res) => {
-   
+        let userId = await res.locals.dToken
+
+        // Find if the array contains an object by comparing the property value
+        let filterD = jsonData.todo_status.some(s => s.status === req.body.todo_status)
+        let filterT = jsonData.todo_type.some(t => t.type === req.body.todo_type)
+ 
+        if (filterD == false || filterT == false) return res.status(422).json({ error: true, code: 422, message: 'The status or type you provided does not exist' })
+
+        Todo.create({
+            user_id: userId,
+            todo_title: req.body.todo_title,
+            todo_description: req.body.todo_description,
+            todo_type: req.body.todo_type,
+            todo_status: req.body.todo_status,
+            start_date: req.body.start_date,
+            end_date: req.body.end_date
+        })
+        .then(result => {
+            return res.status(201).json({
+                error: false,
+                code: 201,
+                message: 'New Todo list has been created'
+            })
+        }).catch(err => {
+            let errors = err.errors
+            const extractedErrors = []
+            errors.forEach(element => {
+                let stripTableName = element.message.split('.')[1]
+                extractedErrors.push(stripTableName)
+            });
+
+            res.status(500).json({ error: true, code: 500, message: extractedErrors })
+        })
+        
     },
     getSingle: async (req, res) => {
         let userId = await res.locals.dToken

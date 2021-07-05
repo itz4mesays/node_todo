@@ -10,5 +10,33 @@
             "slug": "user",
             "name": "User"
         }
+    ],
+    "todo_type": [
+        {
+            "id": 1,
+            "type": "Draft"
+        },
+        {
+            "id": 2,
+            "type": "Published"
+        }
+    ],
+    "todo_status": [
+        {
+            "id": 1,
+            "status": "Pending"
+        },
+        {
+            "id": 2,
+            "status": "In Progress"
+        },
+        {
+            "id": 3,
+            "status": "Completed"
+        },
+        {
+            "id": 4,
+            "status": "Canceled"
+        }
     ]
 }

@@ -32,11 +32,24 @@ authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOj
 ###
 GET http://localhost:5000/v1/todo/get-all
 content-Type: application/json
-authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MjU0NDY1MDMsImV4cCI6MTYyNTUzMjkwM30.hiafnNeC5i6PCgaDe_AHP8D20r6FsH0KvgKUYUFXgTk
-
+authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MjU0NTQzMDQsImV4cCI6MTYyNTU0MDcwNH0.TWIv-GhDpzoSwuwAKmth91MOkC3vuBAUUjGp6Xe1c14
 
 
 ###
 GET http://localhost:5000/v1/todo/get-single/1
 content-Type: application/json
-authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MjU0NDY1MDMsImV4cCI6MTYyNTUzMjkwM30.hiafnNeC5i6PCgaDe_AHP8D20r6FsH0KvgKUYUFXgTk
+authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MjU0NTQzMDQsImV4cCI6MTYyNTU0MDcwNH0.TWIv-GhDpzoSwuwAKmth91MOkC3vuBAUUjGp6Xe1c14
+
+###
+POST http://localhost:5000/v1/todo/create
+content-Type: application/json
+authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MjU0NTQzMDQsImV4cCI6MTYyNTU0MDcwNH0.TWIv-GhDpzoSwuwAKmth91MOkC3vuBAUUjGp6Xe1c14
+
+{
+    "todo_title": "Frontend Development",
+    "todo_description": "Develop a frontend for TODO using VueJs",
+    "todo_type": "Draft",
+    "todo_status": "Pending",
+    "start_date": "2021-07-05",
+    "end_date": "2021-07-30"
+}
