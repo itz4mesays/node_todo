@@ -2,6 +2,7 @@ require('dotenv').config()
 const jwt = require('jsonwebtoken')
 const db = require('../app/models')
 const AccessToken = db.rest.models.accesstoken
+const User = db.rest.models.user
 
 module.exports = {
     verifyToken: (req, res, next) => {
@@ -29,5 +30,19 @@ module.exports = {
             res.locals.dToken = decoded.user
             next()
         });
+    },
+    isAdmin: (req, res, next) => {
+        User.findOne({ where: 
+            { id: res.locals.dToken }
+        })
+        .then(result => {
+            if (result && result.role != 'user') {
+                return next()
+            } else {
+                return res.status(400).json({ error: true, code: 400, message: 'You do not have the privilege to perform this action ' })
+            }
+        }).catch(err => {
+            return res.status(400).json({ error: true, code: 400, message: err })
+        })
     }
 }

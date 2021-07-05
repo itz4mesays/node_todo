@@ -13,8 +13,8 @@ POST http://localhost:5000/v1/user/login
 content-Type: application/json
 
 {
-    "username": "prof",
-    "password": "Deejayfex_123"
+    "username": "oyedele.phemy",
+    "password": "welcome123"
 }
 
 
@@ -53,3 +53,28 @@ authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOj
     "start_date": "2021-07-05",
     "end_date": "2021-07-30"
 }
+
+###
+PUT http://localhost:5000/v1/todo/update/2
+content-Type: application/json
+authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MjU0NTQzMDQsImV4cCI6MTYyNTU0MDcwNH0.TWIv-GhDpzoSwuwAKmth91MOkC3vuBAUUjGp6Xe1c14
+
+{
+    "todo_title": "Frontend Development Updated",
+    "todo_description": "Develop a frontend for TODO using VueJs",
+    "todo_type": "Published",
+    "todo_status": "Pending",
+    "start_date": "2021-07-05",
+    "end_date": "2021-07-30"
+}
+
+###
+DELETE http://localhost:5000/v1/todo/delete/2
+content-Type: application/json
+authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjozLCJpYXQiOjE2MjU0NTQzMDQsImV4cCI6MTYyNTU0MDcwNH0.TWIv-GhDpzoSwuwAKmth91MOkC3vuBAUUjGp6Xe1c14
+
+
+###
+GET http://localhost:5000/v1/todo/fetch-todos
+content-Type: application/json
+authorization-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjo1LCJpYXQiOjE2MjU0OTg5NjEsImV4cCI6MTYyNTU4NTM2MX0.Gar8NivUBYDmdzz23UvbvQflQKTNBxuUSZMQEbz4EL4
